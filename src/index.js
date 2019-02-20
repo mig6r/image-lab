@@ -144,7 +144,7 @@
 
 
 
-
+    //Récupération du contenu du stockage
     function checkSpace(lang){
         
         myRemoveChild(colors);
