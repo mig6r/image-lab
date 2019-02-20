@@ -1,0 +1,21 @@
+{
+  "name": "javascript-initiation",
+  "version": "1.0.0",
+  "description": "Cours permière semaine javascript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "initiation",
+    "javascript"
+  ],
+  "author": "Sébastien",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "latest",
+    "gulp": "^4.0.0",
+    "jquery": "latest",
+    "popper.js": "latest"
+  }
+}
