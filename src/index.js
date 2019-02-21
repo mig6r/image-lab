@@ -11,14 +11,6 @@
 
     }
 
-    
-
-
-
-
-
-
-
     //string
 
     //var namespace = "mycolors_app";
@@ -36,25 +28,10 @@
     var imgExtentions = [];
     var userInfos = [];
 
-    
-    
-    
-    /* if(!images){
-        images=[];
-    }
-*/
-    //console.log(localStorage.getItem(namespace));
-
-
     var menuItems = [];
-
-
 
     //push des éléments dans les tableaux
     imgExtentions.unshift("jpg", "png", "gif");
-
- 
-
 
     //traductions
     var titre = {
@@ -62,12 +39,9 @@
         EN: "Display your colors"
     }
 
-
    var traduction = {
-
         titre: titre
     }
-
 
     var textButton = {
         FR: "Télécharger une image",
@@ -140,8 +114,6 @@
     var divColors = window.document.getElementById("colors");
     var langFr = window.document.getElementById("langFr");
     var langEn  = window.document.getElementById("langEn");
-    
-
 
 
     //Récupération du contenu du stockage
@@ -165,12 +137,8 @@
     }
     checkSpace(app.lang);
 
-
-
-
    
-    function selectLang(lang){
-        
+    function selectLang(lang){     
 
         if ("undefined" != typeof lang) {
             app.lang = lang;
@@ -188,8 +156,7 @@
 
 
     selectLang();
-   
-   
+
     langFr.onclick = function (event) {
         selectLang("FR");
     };
@@ -197,13 +164,7 @@
     langEn.onclick = function (event) {
         selectLang("EN");
     };
- 
-
-
-console.log(app);
     
-
-    //window.localStorage.setItem("foo", pushImage);
 
 
     //fonctions
@@ -268,8 +229,42 @@ console.log(app);
         
     }
 
-    //pushImage("color", "assets/images/aventador.jpg", "nom", "jpg");
-    //pushImage("color, assets/images/488pista.jpg", "488pista", "jpg");
+    /**
+     * Delete all HTML element in node
+     * @param {HTMLelement} node 
+     */
+    function myRemoveChild(node) {
+        if (node instanceof HTMLElement === false) {
+            throw new Error("Un élement HTML est attendu dans la première variable de la fonction 'myRemoveChild'");
+        }
+        while (node.childNodes.length) {
+            node.removeChild(node.childNodes[0]);
+        }
+    }
+
+        /**
+     * 
+     * @param {string} tagname 
+     * @param {String} text 
+     * @param {HTMLElement} target 
+     * @return {HTMLElement}
+     */
+    function textInElement(tagname, text, target) {
+
+        if ("string" !== typeof tagname) {
+            throw new Error("La fonction textInElement demande un élément HTML dans le premier parametre");
+        }
+        var newElement = window.document.createElement(tagname);
+        if ("undefined" != typeof text) {
+            var createTextElement = window.document.createTextNode(text);
+            newElement.appendChild(createTextElement);
+        }
+        if (target instanceof HTMLElement) {
+            target.appendChild(newElement);
+        }
+        return newElement;
+
+    }
 
     /**
      * Vérifie si la gallerie est pleine
@@ -342,29 +337,6 @@ console.log(app);
         var createBaliseMessage = textInElement("h1", titre[app.lang], message);
     }
 
-    /**
-     * 
-     * @param {string} tagname 
-     * @param {String} text 
-     * @param {HTMLElement} target 
-     * @return {HTMLElement}
-     */
-    function textInElement(tagname, text, target) {
-
-        if ("string" !== typeof tagname) {
-            throw new Error("La fonction textInElement demande un élément HTML dans le premier parametre");
-        }
-        var newElement = window.document.createElement(tagname);
-        if ("undefined" != typeof text) {
-            var createTextElement = window.document.createTextNode(text);
-            newElement.appendChild(createTextElement);
-        }
-        if (target instanceof HTMLElement) {
-            target.appendChild(newElement);
-        }
-        return newElement;
-
-    }
 
     /**
      * Affichage du bouton d'ajout d'images
@@ -393,28 +365,15 @@ console.log(app);
            inputSubmit.setAttribute("class", "btn btn-info");
             
            //Bouton envoyer de l'image donnée en URL
-          /*
-           formUrl.addEventListener("submit", function (event) {
-                onSubmitForm(event, this);
-                //onSubmitForm.call(this, event);
 
-            });
-            */
            formUrl.addEventListener("submit", onSubmitForm);
-
 
             //On simule le clique sur le input avec le div btUpload
             btUpload.addEventListener("click", function (e) {
                 file.click();
-                console.log(this);
             });
             //On declenche la fonction de l'api POST lorsque le input est click
             
-            /*
-            file.addEventListener("change", function (event) {
-                onChangeFile(event, this.files[0], this.files[0].name);
-            });
-            */
             file.addEventListener("change", onChangeFile);
 
             return;
@@ -435,8 +394,6 @@ console.log(app);
         this['inputNameUrl'].disabled = true;
         
         event.preventDefault();
-        //console.log(inputUrl.value);
-        //var urlImage = console.log(formUrl['inputNameUrl'].value);
         var xhr = new XMLHttpRequest;
         // Ouvrir une connection
         xhr.open("GET", "https://api.imagga.com/v2/colors?image_url=" + this['inputNameUrl'].value);
@@ -501,8 +458,6 @@ console.log(app);
                     );
                     displayImages();
                     infoNbImages()
-                    //onClickImage("click", gallery.lastChild);
-                    //gallery.lastChild.onclick();
                     onClickImage.call(gallery.lastChild);
                     window.localStorage.setItem(app.namespace, JSON.stringify(app));
                 };
@@ -522,28 +477,6 @@ console.log(app);
         body.append("image", uploadedFile);
         // envoyer la requette
         xhr.send(body);
-
-
-    }
-
-
-
-    /**
-     * Affichage des infos sur le bandeau gallery
-     * On test si des images sont présentes dans la gallerie, puis en fonction, on affiche le nombre d'images ou on informe que la gallerie est vide
-     */
-    function infoNbImages() {
-        myRemoveChild(infoImg);
-        var informeNbImages = translate(txtNoImages);
-        supBouton.style.display="none";
-        if (app.images.length) {
-           
-            var informeNbImages =  app.images.length + " " + translate(txtNbImages) + " (" + maxFileGallery + " max)";
-            
-           // supBouton.addEventListener("click", clearImages);
-            supBouton.style.display="block";
-        }
-        textInElement("h6", informeNbImages, infoImg);
     }
 
 
@@ -593,18 +526,6 @@ console.log(app);
         }
     }
 
-    /**
-     * 
-     * @param {HTMLelement} node 
-     */
-    function myRemoveChild(node) {
-        if (node instanceof HTMLElement === false) {
-            throw new Error("Un élement HTML est attendu dans la première variable de la fonction 'myRemoveChild'");
-        }
-        while (node.childNodes.length) {
-            node.removeChild(node.childNodes[0]);
-        }
-    }
 
     /**
      * 
@@ -639,7 +560,6 @@ console.log(app);
     }
 
     function displayColors (category, imgColors){
-        //console.log(imgColors);
         var divColorImg = textInElement("div", category, colors);
         divColorImg.setAttribute("class", "col-4 text-white bg-info mt-2 ml-1 p-1 text-center rounded-top font-weight-bold");
         for (var key in imgColors) {
@@ -681,10 +601,29 @@ console.log(app);
         myRemoveChild(preview);
     }
 
+    
+
     var supBouton = textInElement("button", "Tout supprimer", supGallery);
     supBouton.setAttribute("class", "btn btn-secondary btn-sm");
 
     supBouton.addEventListener("click", eraseSpace);
+
+        /**
+     * Affichage des infos sur le bandeau gallery
+     * On test si des images sont présentes dans la gallerie, puis en fonction, on affiche le nombre d'images ou on informe que la gallerie est vide
+     */
+    function infoNbImages() {
+        myRemoveChild(infoImg);
+        var informeNbImages = translate(txtNoImages);
+        supBouton.style.display="none";
+        if (app.images.length) {
+           
+            var informeNbImages =  app.images.length + " " + translate(txtNbImages) + " (" + maxFileGallery + " max)";
+            supBouton.style.display="block";
+        }
+        textInElement("h6", informeNbImages, infoImg);
+    }
+
 
 
     
