@@ -1,9 +1,9 @@
-import $ from 'jquery';
-import { isGalleryFull } from './check.js';
-import { pushImage } from './gallery';
-import { displayImages, onClickImage } from './displayImages';
+import $ from "jquery";
+import { isGalleryFull } from "./check.js";
+import { pushImage } from "./gallery";
+import { displayImages, onClickImage } from "./displayImages";
 import { space } from "./app";
-import { infoNbImages } from './infonbimages';
+import { infoNbImages } from "./infonbimages";
 
 const app = space();
 
@@ -57,7 +57,7 @@ export const displayButton = () => {
                 .append($("<div>").attr("class", "input-group-append")
                     .append($("<button>").text(btSendUrl[app.lang]).attr({ "type": "submit", "class": "btn btn-info" }))
                 )
-            ))
+            ));
 
         $("form").bind("submit", onSubmitForm);
 
@@ -120,6 +120,7 @@ const onSubmitForm = (event) => {
             infoNbImages()
             $("#gallery div:last-child").trigger("click");
             
+            
             window.localStorage.setItem(app.namespace, JSON.stringify(app));
         },
 
@@ -141,7 +142,7 @@ function onChangeFile(event) {
     spinner();
     $("#file").unbind("change");
     var uploadedFile = new FormData;
-    uploadedFile.append("image", e. target. files[0]);
+    uploadedFile.append("image", event. target. files[0]);
     let strSplit = file.files[0].name.split(".");
     let strSplitNb = strSplit.length;
     for (let key in strSplit) {
@@ -160,7 +161,6 @@ function onChangeFile(event) {
         success: (data) => {
             var reader = new FileReader;
             reader.onload = function () {
-                console.log(file.files[0].name);
                 pushImage(
                     data.result.colors,
                     reader.result,
@@ -169,7 +169,7 @@ function onChangeFile(event) {
                 );
                 displayButton();
                 displayImages();
-                infoNbImages()
+                infoNbImages();
                 $("#gallery div:last-child").trigger("click");
                // btDelete("#gallery div:last-child");
                 window.localStorage.setItem(app.namespace, JSON.stringify(app));
@@ -177,12 +177,12 @@ function onChangeFile(event) {
             reader.onerror = function (event) {
                 alert("Fonction readAsDataURL en erreur");
             };
-            reader.readAsDataURL(file.files[0]);
+            reader.readAsDataURL(event. target. files[0]);
         },
 
         error: () => {
             alert("format non pris en charge");
         },
 
-    })
+    });
 }

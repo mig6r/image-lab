@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 import {space} from "./app";
 const app = space();
 
@@ -10,6 +10,6 @@ var infoClickImage = {
 export const infoClick = () => {
 $("#colors").append($("<div>").text(infoClickImage[app.lang])
 .attr("class","alert alert-primary font-weight-bold text-center")
-.css("width","100%"))
-}
+.css("width","100%"));
+};
 

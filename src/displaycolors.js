@@ -1,7 +1,7 @@
-import $ from 'jquery';
+import $ from "jquery";
 import { infoNbImages } from "./infonbimages";
 import { space } from "./app";
-import { infoClick } from './features';
+import { infoClick } from "./features";
 let app = space();
 
 
@@ -22,7 +22,7 @@ export const displayColors = (category, imgColors) => {
             
             
         }));
-    })
+    });
 
 }
 
@@ -34,14 +34,15 @@ export const displayColors = (category, imgColors) => {
 export const onClickDelete = (event, image) => {
     $("#colors").empty();
     const result = app.images.find(function (elem) {
-        return (image.css("background-image") === 'url("' + elem.url + '")');
+        //return (image.css("background-image") === 'url("' + elem.url + '")');
+        return (image.css("background-image") === `url('{$elem.url}')`);
     });
     app.images.splice(app.images.indexOf(result), 1);
     window.localStorage.setItem(app.namespace, JSON.stringify(app));
-    $("#preview").css("background-image", '');
+    $("#preview").css("background-image", "");
     $("#preview").empty();
     $("#infoGallery").empty();
     infoNbImages();
     infoClick();
 
-}
+};

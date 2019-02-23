@@ -1,14 +1,14 @@
-import 'bootstrap';
-import  $ from 'jquery';
+import "bootstrap";
+import  $ from "jquery";
 import {displayMenuItems, pushItems} from "./menu";
-import { displayTitle } from './title';
-import { displayImages } from './displayImages';
-import { selectLang } from './selectlang';
+import { displayTitle } from "./title";
+import { displayImages } from "./displayImages";
+import { selectLang } from "./selectlang";
 import {space} from "./app";
-import { displayButton } from './displayUpload';
-import { displayExtension } from './displayfooter';
-import { infoClick } from './features';
-import { infoNbImages } from './infonbimages';
+import { displayButton } from "./displayUpload";
+import { displayExtension } from "./displayfooter";
+import { infoClick } from "./features";
+import { infoNbImages } from "./infonbimages";
 
 $(function () {
     /*équivalent en javascript natif : 

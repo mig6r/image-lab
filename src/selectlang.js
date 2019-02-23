@@ -6,7 +6,7 @@ var btLang = window.document.getElementById("btLang");
 var textBtLang = {
     FR: "Langue",
     EN: "Language"
-}
+};
 
 
 export function selectLang(lang){
@@ -15,7 +15,6 @@ export function selectLang(lang){
     if ("undefined" != typeof lang) {
         app.lang = lang;
         window.localStorage.setItem(app.namespace, JSON.stringify(app));
-        console.log(lang);
         
     }
     myRemoveChild(btLang);

@@ -1,6 +1,6 @@
-import $ from 'jquery';
+import $ from "jquery";
 import { space } from "./app";
-import { displayButton } from './displayUpload';
+import { displayButton } from "./displayUpload";
 
 const app = space();
 
@@ -23,6 +23,11 @@ let txtSupAll = {
     EN: "Erase all"
 }
 
+function eraseSpace(event) {
+    localStorage.clear();
+    window.location.reload();
+}
+
 let supBouton = $("<button>").text(txtSupAll[app.lang]).attr("class", "btn btn-secondary btn-sm align-self-center");
 $("#supGallery").append(supBouton);
 supBouton.bind("click", eraseSpace);
@@ -31,7 +36,6 @@ supBouton.bind("click", eraseSpace);
  * On test si des images sont présentes dans la gallerie, puis en fonction, on affiche le nombre d'images ou on informe que la gallerie est vide
  */
 export function infoNbImages() {
-    console.log(app.images.length);
     $("#infoGallery").empty();
 
     let noImageDisplay = () => {
@@ -44,9 +48,4 @@ export function infoNbImages() {
     }
     app.images.length ? isImageDisplay() : noImageDisplay();
     
-}
-
-function eraseSpace(event) {
-    localStorage.clear();
-    window.location.reload();
-}
+};

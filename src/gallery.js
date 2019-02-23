@@ -11,7 +11,7 @@ const app = space();
     
    export const pushImage = (color, url, nom, extension) => {
         
-        app.images.push({
+        app.images.push( {
             url: url,
             nom: nom,
             color: color,
@@ -19,4 +19,4 @@ const app = space();
             alt: nom
         });
         
-    }
+    };

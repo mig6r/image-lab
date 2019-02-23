@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 import {space} from "./app";
 
 const app = space();
@@ -13,11 +13,11 @@ let txtExtAllowed = {
      */
     export const displayExtension = () => {
         
-        var ulExtensions = $("<ul>").attr("class","m-0 p-0")
+        var ulExtensions = $("<ul>").attr("class","m-0 p-0");
         
         for (var key in app.imgExt) {
             ulExtensions.append($("<li>").text(app.imgExt[key])
             .attr("class","d-inline pl-2 pr-2 pb-1 m-2 bg-secondary text-white"));
         }
-        $("footer.bottom").append($("<h6>").text(txtExtAllowed[app.lang])).append(ulExtensions)
+        $("footer.bottom").append($("<h6>").text(txtExtAllowed[app.lang])).append(ulExtensions);
     }

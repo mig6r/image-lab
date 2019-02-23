@@ -1,6 +1,6 @@
-import  $ from 'jquery';
+import  $ from "jquery";
 import { space } from "./app";
-import { textInElement } from './textinelement';
+import { textInElement } from "./textinelement";
 const app = space();
 
 /**
@@ -11,6 +11,6 @@ const app = space();
 const titre = {
     FR: "Affichez vos couleurs",
     EN: "Display your colors"
-}
+};
 export let displayTitle = () => $("<h1>").text(titre[app.lang]).insertBefore($("main>div>div>input"));
 
