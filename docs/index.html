@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang='en' style="height: 100%">
+<head>
+    <meta charset='utf8'/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-eval' 'unsafe-inline' *; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: *;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="./dist/index.css" />
+</head>
+
+<body style="background-image:url('assets/fond6.jpg'); background-size: cover; min-height: 100%; margin:0; padding:0; position: relative">
+ 
+    <header class="fixed-top m-0">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="btn-group float-left">
+                <button type="button" class="btn btn-secondary btn-sm" id="btLang" ></button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" id="langFr" href="#">FR</a>
+                    <a class="dropdown-item" id="langEn" href="#">EN</a>
+                </div>
+            </div>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-auto"></ul>
+            </div>
+        </nav>
+
+    </header>
+    
+
+    <main class="container shadow-lg"style="padding-top:60px; padding-bottom:5px; background:white"> 
+        <div class="row justify-content-center mt-4">   
+            <div class="message col-12 col-lg-6 text-center text-lg-left text-info " style="font-family: 'brotherhood'; font-size: 1.8rem"><input type="file" id="file" style="display: none;"/></div> 
+            
+            <div class="message col-12 col-lg-6">
+                <div class="row text-right">
+                    <div id="upload" class="col-12 text-center text-lg-right " ></div> 
+                    <div id="url" class="col-12 text-center mt-1"></div> 
+                    <div class="col-12 text-right">
+
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+ 
+        <div class='row justify-content-between my-4 mx-2'>
+            <!-- image color and preview-->
+       
+            <div class="col-12 col-lg-5 couleurs">
+                <div class="row" id="colors">
+                    
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-7 mt-3 mt-lg-0 pl-2 pr-0">
+                    <div id="preview">
+            </div>
+        </div>
+    </main>
+   
+   
+    <div class="container" style="background: white;">
+        <div id="galleryBanner" class='row justify-content-center  bg-info pt-2 pb-2 mb-4 align-items-center text-white'>
+            <div class="col-lg-2 d-none d-lg-flex"></div>
+            <div id="infoGallery" class="col-12 col-lg-8  text-center"></div>
+            <div id="supGallery" class="col-12 col-lg-2 d-lg-flex justify-content-center"></div>
+        </div>
+        
+        <div id="gallery" class='row' style="">
+            <!--gallerie-->
+        </div> 
+    </div>
+    
+    <footer class='bottom bg-light text-center p-2 border-top container'></footer>
+<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="./dist/index.js"></script>
+</body>
+
+</html>
