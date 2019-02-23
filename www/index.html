@@ -2,18 +2,17 @@
 <html lang='en' style="height: 100%">
 <head>
     <meta charset='utf8'/>
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
-
-
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-eval' 'unsafe-inline' *; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: *;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="./dist/index.css" />
 </head>
 
-<body style="background-image:url('assets/fond.jpg'); background-size: cover; min-height: 100%; margin:0; padding:0; position: relative">
+<body style="background-image:url('assets/fond6.jpg'); background-size: cover; min-height: 100%; margin:0; padding:0; position: relative">
  
     <header class="fixed-top m-0">
-        
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="btn-group float-left">
                 <button type="button" class="btn btn-secondary btn-sm" id="btLang" ></button>
@@ -39,12 +38,12 @@
 
     <main class="container shadow-lg"style="padding-top:60px; padding-bottom:5px; background:white"> 
         <div class="row justify-content-center mt-4">   
-            <div class="message col-12 col-lg-6 text-center text-lg-left text-info " style="font-family: 'Pacifico', cursive;"></div> 
-            <input type="file" id="file" style="display: none;"/>
+            <div class="message col-12 col-lg-6 text-center text-lg-left text-info " style="font-family: 'brotherhood'; font-size: 1.8rem"><input type="file" id="file" style="display: none;"/></div> 
+            
             <div class="message col-12 col-lg-6">
                 <div class="row text-right">
                     <div id="upload" class="col-12 text-center text-lg-right " ></div> 
-                    <div id="url" class="col-12 text-right mt-1 justify-content-right"></div> 
+                    <div id="url" class="col-12 text-center mt-1"></div> 
                     <div class="col-12 text-right">
 
                     </div> 
@@ -73,7 +72,7 @@
         <div id="galleryBanner" class='row justify-content-center  bg-info pt-2 pb-2 mb-4 align-items-center text-white'>
             <div class="col-lg-2 d-none d-lg-flex"></div>
             <div id="infoGallery" class="col-12 col-lg-8  text-center"></div>
-            <div id="supGallery" class="col-12 col-lg-2 d-lg-flex"></div>
+            <div id="supGallery" class="col-12 col-lg-2 d-lg-flex justify-content-center"></div>
         </div>
         
         <div id="gallery" class='row' style="">
@@ -82,11 +81,8 @@
     </div>
     
     <footer class='bottom bg-light text-center p-2 border-top container'></footer>
-
-    <script src="node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="src/index.js"></script><em></em>
+<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="./dist/index.js"></script>
 </body>
 
 </html>
