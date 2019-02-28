@@ -11,7 +11,7 @@ https://mig6r.github.io/image-lab/
 
 This package require NPM to add libraries
 ```js
-npm run install
+npm install
 ```
 launch index.html
 
