@@ -23,7 +23,6 @@ const app = space();
  * @param {*} key 
  */
 export const onClickImage = (event) => {
-    console.log(event);
     $("#colors").empty();
     $("#preview").empty().append($("<button>").text("supprimer").attr("class", "btn btn-danger btn-sm").css("margin-top", "1rem"))
         .css({

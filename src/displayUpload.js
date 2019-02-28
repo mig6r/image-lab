@@ -61,6 +61,8 @@ export const displayButton = () => {
 
         $("form").bind("submit", onSubmitForm);
 
+    
+        $("#file")[0].value="";
 
         $("#file").bind("change", onChangeFile);
 
@@ -72,6 +74,7 @@ export const displayButton = () => {
         // //si le return n'est pas fait dans le if, la fonction continue 
     }
     $("#upload").append($("<b>").text(textGalleryFull[app.lang]));
+    
 }
 
 
@@ -90,8 +93,9 @@ export const spinner = () => {
 */
 const onSubmitForm = (event) => {
     let fichierImage = $('form input[type="url"]').val();
-    spinner()
     $("#file").unbind("change");
+    spinner()
+    
     event.preventDefault();
     ;
     $.ajax({
@@ -117,7 +121,8 @@ const onSubmitForm = (event) => {
             );
             displayButton();
             displayImages();
-            infoNbImages()
+            infoNbImages();
+           
             $("#gallery div:last-child").trigger("click");
             
             
@@ -137,13 +142,15 @@ const onSubmitForm = (event) => {
  * @param {File} uploadedFile 
  */
 
-//console.log(app.images);
 function onChangeFile(event) {
-    spinner();
+    
     $("#file").unbind("change");
+    spinner();
+    
     var uploadedFile = new FormData;
     uploadedFile.append("image", event. target. files[0]);
-    let strSplit = file.files[0].name.split(".");
+    let strSplit = event. target. files[0].name.split(".");
+    
     let strSplitNb = strSplit.length;
     for (let key in strSplit) {
         if (key == strSplitNb - 1) { var extension = strSplit[key] };
@@ -167,11 +174,11 @@ function onChangeFile(event) {
                     file.files[0].name,
                     extension
                 );
+               
                 displayButton();
                 displayImages();
                 infoNbImages();
                 $("#gallery div:last-child").trigger("click");
-               // btDelete("#gallery div:last-child");
                 window.localStorage.setItem(app.namespace, JSON.stringify(app));
             }
             reader.onerror = function (event) {

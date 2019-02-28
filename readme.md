@@ -5,7 +5,7 @@ This is my first Javascript native project
 
 ## Demo
 
-> Coming soon
+https://mig6r.github.io/image-lab/
 
 ## Install
 
