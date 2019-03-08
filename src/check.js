@@ -17,10 +17,10 @@ export const  isGalleryFull = () => {
  */
 export const isExtensionValid = (image) => {
     let valid=false;
-    app.imgExt.forEach(value => {
+    app.imgExt.forEach((value) => {
         if (value === image) {
             valid = true;         
         }  
-    })
+    });
     return valid;
 };

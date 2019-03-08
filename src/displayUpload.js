@@ -92,7 +92,7 @@ export const spinner = () => {
 * @param {Variable} formUrl 
 */
 const onSubmitForm = (event) => {
-    let fichierImage = $('form input[type="url"]').val();
+    let fichierImage = $("form input[type=\"url\"]").val();
     $("#file").unbind("change");
     spinner();
     
@@ -133,7 +133,7 @@ const onSubmitForm = (event) => {
             alert("format non pris en charge");
         },
 
-    })
+    });
 }
 
 /**
@@ -154,8 +154,8 @@ function onChangeFile(event) {
     
     let strSplitNb = strSplit.length;
     for (let key in strSplit) {
-        if (key == strSplitNb - 1) { var extension = strSplit[key] };
-    }
+        if (key == strSplitNb - 1) { var extension = strSplit[key] }
+    };
     $.ajax({
         url: "https://api.imagga.com/v2/colors",
         method: "POST",
@@ -181,7 +181,7 @@ function onChangeFile(event) {
                 infoNbImages();
                 $("#gallery div:last-child").trigger("click");
                 window.localStorage.setItem(app.namespace, JSON.stringify(app));
-            }
+            };
             reader.onerror = function (event) {
                 alert("Fonction readAsDataURL en erreur");
             };

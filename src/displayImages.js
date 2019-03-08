@@ -23,7 +23,7 @@ export const displayImages = () => {
     $("#gallery").empty();
 
 
-    app.images.forEach(value => {
+    app.images.forEach((value) => {
 
    // for (let key in app.images) {
 
@@ -50,7 +50,7 @@ export const displayImages = () => {
             let itemCol = $("#gallery div:last-child");
             itemCol.bind("click", { "image": itemCol }, onClickImage);
 
-        }
+        };
         isExtensionValid(value.extension) ? isImageDisplay() : noImageDisplay();
     })
 };
@@ -68,7 +68,7 @@ export const onClickImage = (event) => {
             "background-image": event.data.image.css("background-image")
         });
     var result = app.images.find(function (elem) {
-        return (event.data.image.css("background-image") === 'url("' + elem.url + '")');
+        return (event.data.image.css("background-image") === `url("{elem.url}")`);
     });
 
     displayColors("image", result.color.image_colors);

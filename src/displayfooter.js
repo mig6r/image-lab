@@ -15,9 +15,10 @@ let txtExtAllowed = {
         
         var ulExtensions = $("<ul>").attr("class","m-0 p-0");
         
-        for (var key in app.imgExt) {
-            ulExtensions.append($("<li>").text(app.imgExt[key])
+       // for (var key in app.imgExt) {
+            app.imgExt.forEach((value) => {
+            ulExtensions.append($("<li>").text(value)
             .attr("class","d-inline pl-2 pr-2 pb-1 m-2 bg-secondary text-white"));
-        }
+        });
         $("footer.bottom").append($("<h6>").text(txtExtAllowed[app.lang])).append(ulExtensions);
-    }
+    };
