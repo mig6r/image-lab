@@ -35,7 +35,7 @@ export const onClickDelete = (event, image) => {
     $("#colors").empty();
     const result = app.images.find(function (elem) {
         //return (image.css("background-image") === 'url("' + elem.url + '")');
-        return (image.css("background-image") === `url('{$elem.url}')`);
+        return (image.css("background-image") === `url("{$elem.url}")`);
     });
     app.images.splice(app.images.indexOf(result), 1);
     window.localStorage.setItem(app.namespace, JSON.stringify(app));

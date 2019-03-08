@@ -15,7 +15,45 @@ const colForground = {
 const app = space();
 
 
+/**
+ * Affichage des images de la gallerie
+ */
 
+export const displayImages = () => {
+    $("#gallery").empty();
+
+
+    app.images.forEach(value => {
+
+   // for (let key in app.images) {
+
+        let noImageDisplay = () => {
+            $("#gallery").append($("<div>")
+                .text(`Image ${value.nom} | le format de l'image n'est pas accepté`)
+                .attr("class", "col-6 col-md-4 col-lg-3 col-xl-3 p-1 border border-white alert alert-danger"))
+                .css("height", "12rem");
+
+        }
+        let isImageDisplay = () => {
+
+            $("#gallery").append($("<div>")
+                .attr("class", "col-6 col-md-4 col-lg-3 col-xl-3 p-1 border border-white")
+                .css({
+                    "background-image": `url('${value.url}')`,
+                    "background-size": "cover",
+                    "background-repeat": "no-repeat",
+                    "background-position": "center",
+                    "height": "12rem",
+                    "cursor": "pointer"
+
+                }));
+            let itemCol = $("#gallery div:last-child");
+            itemCol.bind("click", { "image": itemCol }, onClickImage);
+
+        }
+        isExtensionValid(value.extension) ? isImageDisplay() : noImageDisplay();
+    })
+};
 
 /**
  * 
@@ -43,41 +81,5 @@ export const onClickImage = (event) => {
         onClickDelete(event, image);
         displayImages();
    
-    })
-};
-
-/**
- * Affichage des images de la gallerie
- */
-
-export const displayImages = () => {
-    $("#gallery").empty();
-    for (let key in app.images) {
-
-        let noImageDisplay = () => {
-            $("#gallery").append($("<div>")
-                .text(`Image ${app.images[key].nom} | le format de l'image n'est pas accepté`)
-                .attr("class", "col-6 col-md-4 col-lg-3 col-xl-3 p-1 border border-white alert alert-danger"))
-                .css("height", "12rem");
-
-        }
-        let isImageDisplay = () => {
-
-            $("#gallery").append($("<div>")
-                .attr("class", "col-6 col-md-4 col-lg-3 col-xl-3 p-1 border border-white")
-                .css({
-                    "background-image": `url('${app.images[key].url}')`,
-                    "background-size": "cover",
-                    "background-repeat": "no-repeat",
-                    "background-position": "center",
-                    "height": "12rem",
-                    "cursor": "pointer"
-
-                }));
-            let itemCol = $("#gallery div:last-child");
-            itemCol.bind("click", { "image": itemCol }, onClickImage);
-
-        }
-        isExtensionValid(app.images[key].extension) ? isImageDisplay() : noImageDisplay();
-    }
+    });
 };

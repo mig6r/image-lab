@@ -1,4 +1,4 @@
-import  $ from 'jquery';
+import  $ from "jquery";
 import {space} from "./app";
 const app = space();
 const menuItems = [];
@@ -25,7 +25,7 @@ export const displayMenuItems = () => {
      let menu = $(".navbar-nav.ml-auto");  
 
 
-    menuItems.forEach(value  => {
+    menuItems.forEach((value)  => {
         if (app.lang === value.lang) { 
         menu.append( 
             $("<li>").attr("class", "nav-item")
@@ -35,9 +35,9 @@ export const displayMenuItems = () => {
             "style" : "font-family: 'north'; font-size: 1.8rem;"
             })
             )
-        )
+        );
          
-         };
+         }
         }
     );
 };

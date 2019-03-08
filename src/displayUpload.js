@@ -94,10 +94,10 @@ export const spinner = () => {
 const onSubmitForm = (event) => {
     let fichierImage = $('form input[type="url"]').val();
     $("#file").unbind("change");
-    spinner()
+    spinner();
     
     event.preventDefault();
-    ;
+    
     $.ajax({
         url: "https://api.imagga.com/v2/colors?image_url=" + fichierImage,
         method: "GET",
@@ -148,8 +148,9 @@ function onChangeFile(event) {
     spinner();
     
     var uploadedFile = new FormData;
-    uploadedFile.append("image", event. target. files[0]);
-    let strSplit = event. target. files[0].name.split(".");
+    let myFile = event. target. files[0];
+    uploadedFile.append("image", myFile);
+    let strSplit = myFile.name.split(".");
     
     let strSplitNb = strSplit.length;
     for (let key in strSplit) {
@@ -171,7 +172,7 @@ function onChangeFile(event) {
                 pushImage(
                     data.result.colors,
                     reader.result,
-                    file.files[0].name,
+                    myFile.name,
                     extension
                 );
                

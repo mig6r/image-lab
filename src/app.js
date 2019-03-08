@@ -6,7 +6,7 @@ const app = {
     lang: "FR",
     imgExt : ["jpg", "png", "gif"],
     imgMax : "10"
-}
+};
 
 
 export const space = () => {

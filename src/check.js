@@ -16,15 +16,11 @@ export const  isGalleryFull = () => {
  * @returns {Boolean}
  */
 export const isExtensionValid = (image) => {
-    // imgExt.forEach(value => {
-    //     if (value === image) {
-    //         return true;
-    //     }
-    // })
-    for (var key in app.imgExt){
-        if (app.imgExt[key] === image) {
-         return true;
-        }
-    }
-    //return false;
-}
+    let valid=false;
+    app.imgExt.forEach(value => {
+        if (value === image) {
+            valid = true;         
+        }  
+    })
+    return valid;
+};
