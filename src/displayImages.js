@@ -12,6 +12,11 @@ const colForground = {
     FR: "Premier Plan",
     EN: "Forground"
 }
+
+const deleteImg = {
+    FR: "Supprimer",
+    EN: "Delete"
+}
 const app = space();
 
 
@@ -62,7 +67,7 @@ export const displayImages = () => {
  */
 export const onClickImage = (event) => {
     $("#colors").empty();
-    $("#preview").empty().append($("<button>").text("supprimer").attr("class", "btn btn-danger btn-sm").css("margin-top", "1rem"))
+    $("#preview").empty().append($("<button>").text(deleteImg[app.lang]).attr("class", "btn btn-danger btn-sm").css("margin-top", "1rem"))
         .css({
             "margin-top": "1rem",
             "background-image": event.data.image.css("background-image")
