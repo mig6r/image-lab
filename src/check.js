@@ -18,7 +18,7 @@ export const  isGalleryFull = () => {
 export const isExtensionValid = (image) => {
     let valid=false;
     app.imgExt.forEach((value) => {
-        if (value === image) {
+        if (value === image.toLowerCase()) {
             valid = true;         
         }  
     });

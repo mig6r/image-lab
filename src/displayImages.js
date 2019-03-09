@@ -68,7 +68,8 @@ export const onClickImage = (event) => {
             "background-image": event.data.image.css("background-image")
         });
     var result = app.images.find(function (elem) {
-        return (event.data.image.css("background-image") === `url("{elem.url}")`);
+       return (event.data.image.css("background-image") === "url(\"" + elem.url + "\")");
+       //console.log(elem.url);
     });
 
     displayColors("image", result.color.image_colors);

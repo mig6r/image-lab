@@ -8,6 +8,7 @@ let app = space();
 
 export const displayColors = (category, imgColors) => {
 
+
     $("#colors").append($("<div>").text(category)
         .attr("class", "col-4 text-white bg-info mt-2 ml-1 p-1 text-center rounded-top font-weight-bold"));
 
