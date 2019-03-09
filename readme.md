@@ -1,5 +1,5 @@
 # Image Lab
-it's my first javascript project, then rewritten with JQuery
+First native javascript project, rewritten with JQuery
 
 Design with bootstrap
 
@@ -9,7 +9,9 @@ Using webPack stack and Cordova for mobile deployement
 
 ## Demo
 
-https://mig6r.github.io/image-lab/
+<img src="demo.gif">
+
+[Test demo here](https://mig6r.github.io/image-lab/)
 
 ## Install
 
