@@ -12,7 +12,7 @@ export const displayColors = (category, imgColors) => {
     $("#colors").append($("<div>").text(category)
         .attr("class", "col-4 text-white bg-info mt-2 ml-1 p-1 text-center rounded-top font-weight-bold"));
 
-    imgColors.forEach(value => {
+    imgColors.forEach((value) => {
         $("#colors").append($("<div>").text(`${value.closest_palette_color} [ ${value.html_code} ]
          [ ${Math.round(value.percent)}% ]`).attr("class", "col-12 text-white p-2").css({
             "background-color": value.html_code,
@@ -25,7 +25,7 @@ export const displayColors = (category, imgColors) => {
         }));
     });
 
-}
+};
 
 /**
      * 
@@ -35,7 +35,6 @@ export const displayColors = (category, imgColors) => {
 export const onClickDelete = (event, image) => {
     $("#colors").empty();
     const result = app.images.find(function (elem) {
-        //return (image.css("background-image") === 'url("' + elem.url + '")');
         return (image.css("background-image") === `url("{$elem.url}")`);
     });
     app.images.splice(app.images.indexOf(result), 1);

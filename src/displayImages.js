@@ -38,7 +38,7 @@ export const displayImages = () => {
                 .attr("class", "col-6 col-md-4 col-lg-3 col-xl-3 p-1 border border-white alert alert-danger"))
                 .css("height", "12rem");
 
-        }
+        };
         let isImageDisplay = () => {
 
             $("#gallery").append($("<div>")
@@ -57,7 +57,7 @@ export const displayImages = () => {
 
         };
         isExtensionValid(value.extension) ? isImageDisplay() : noImageDisplay();
-    })
+    });
 };
 
 /**

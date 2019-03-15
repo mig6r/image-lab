@@ -5,7 +5,7 @@ const app = space();
 let txtExtAllowed = {
     FR: "Extension acceptées",
     EN: "Allowed extensions"
-}
+};
     
     /**
      * Affichage de la liste des extensions acceptées dans le footer

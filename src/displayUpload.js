@@ -109,10 +109,7 @@ const onSubmitForm = (event) => {
         success: (data) => {
             let str = fichierImage;
             let strSplit = str.split(".");
-            let strSplitNb = strSplit.length;
-            for (let key in strSplit) {
-                if (key == strSplitNb - 1) { var extension = strSplit[key] };
-            }
+            var extension =  strSplit[strSplit.length - 1];
             pushImage(
                 data.result.colors,
                 fichierImage,
@@ -151,11 +148,7 @@ function onChangeFile(event) {
     let myFile = event. target. files[0];
     uploadedFile.append("image", myFile);
     let strSplit = myFile.name.split(".");
-    
-    let strSplitNb = strSplit.length;
-    for (let key in strSplit) {
-        if (key == strSplitNb - 1) { var extension = strSplit[key] }
-    };
+    var extension =  strSplit[strSplit.length - 1];
     $.ajax({
         url: "https://api.imagga.com/v2/colors",
         method: "POST",

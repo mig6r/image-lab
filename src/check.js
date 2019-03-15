@@ -7,7 +7,7 @@ const app = space();
  */
 export const  isGalleryFull = () => {
     return app.images.length >= 10;
-}
+};
 
 /**
  * Vérification de l'extension de la photo uploadée

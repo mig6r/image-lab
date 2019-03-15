@@ -45,7 +45,7 @@ export function infoNbImages() {
     let isImageDisplay = () => {
         $("#infoGallery").append($("<h6>").text(`${app.images.length} ${txtNbImages[app.lang]} ( ${app.imgMax} max)`));
         supBouton.css("display", "inline");
-    }
+    };
     app.images.length ? isImageDisplay() : noImageDisplay();
     
-};
+}
