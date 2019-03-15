@@ -7,16 +7,16 @@ import { isExtensionValid } from "./check.js";
 const colBackground = {
     FR: "Arrière Plan",
     EN: "Background"
-}
+};
 const colForground = {
     FR: "Premier Plan",
     EN: "Forground"
-}
+};
 
 const deleteImg = {
     FR: "Supprimer",
     EN: "Delete"
-}
+};
 const app = space();
 
 
